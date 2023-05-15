@@ -40,6 +40,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/', indexRouter);
+app.use('/cafes', cafesRouter);
+
 //keep below passport
 app.use(function(req, res, next){
     res.locals.user = req.user;
@@ -66,21 +69,5 @@ app.use(function(err, req, res, next) {
     res.render('error');
   });
 
-
-// Define a "root" route directly on app
-// Tomorrow, we'll use best practice routing
-// app.get('/', function (req, res) {
-//   res.send('<h1>Home Page</h1>');
-// });
-
-// app.get('/home', function(req, res) {
-//     res.render('home');
-//   });
-
-// // Tell the app to listen on port 3000
-// // for HTTP requests from clients
-app.listen(3000, function () {
-  console.log('Listening on port 3000');
-});
 
 module.exports = app;

@@ -21,8 +21,8 @@ router.get('/oauth2callback', passport.authenticate(
 'google',
 {
     //change to a home page
-    successRedirect:'/',
-    failureRedirect: '/'
+    successRedirect:'/cafes',
+    failureRedirect: '/cafes'
  }
 ));
 
@@ -30,7 +30,7 @@ router.get('/logout', function(req, res){
     req.logout(function(){
         //Change path for landing(cafes) page mby to home?
         //also go to header ejs and update
-        res.redirect('/')
+        res.redirect('/cafes')
     });
 });
 
