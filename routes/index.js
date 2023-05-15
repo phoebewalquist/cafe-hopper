@@ -3,7 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'HOME' });
+    res.render('index', { title: 'Express' });
   });
   
 
@@ -21,8 +21,8 @@ router.get('/oauth2callback', passport.authenticate(
 'google',
 {
     //change to a home page
-    successRedirect:'/cafes',
-    failureRedirect: '/cafes'
+    successRedirect:'/',
+    failureRedirect: '/'
  }
 ));
 
@@ -30,9 +30,9 @@ router.get('/logout', function(req, res){
     req.logout(function(){
         //Change path for landing(cafes) page mby to home?
         //also go to header ejs and update
-        res.redirect('/cafes')
+        res.redirect('/')
     });
 });
 
 
-module.exports = router
+module.exports = router;

@@ -1,4 +1,5 @@
 // Load express
+var createError = require('http-errors');
 var express = require('express');
 var path = require('path')
 var cookieParser = require('cookie-parser');
@@ -26,7 +27,10 @@ app.set('views', path.join(__dirname, 'views'));
   
 // Mount middleware (app.use)
 app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 //keep below cookie!
 app.use(session({
     secret: process.env.SECRET,
@@ -39,6 +43,7 @@ app.use(passport.session());
 //keep below passport
 app.use(function(req, res, next){
     res.locals.user = req.user;
+    next();
 });
 
 app.use('/', indexRouter);
@@ -74,6 +79,8 @@ app.use(function(err, req, res, next) {
 
 // // Tell the app to listen on port 3000
 // // for HTTP requests from clients
-// app.listen(3000, function () {
-//   console.log('Listening on port 3000');
-// });
+app.listen(3000, function () {
+  console.log('Listening on port 3000');
+});
+
+module.exports = app;

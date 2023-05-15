@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const cafeSchema = new Schema({
-    title: String,
+    title: { type: String, required: true },
     image: String
     //feautures: String ?
 }, {
