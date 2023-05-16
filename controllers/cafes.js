@@ -3,6 +3,7 @@ const Cafe = require('../models/cafe');
 
 module.exports = {
     index,
+    show,
     new: newCafe,
     create,
 
@@ -20,6 +21,12 @@ async function index(req, res) {
     res.render('cafes/index', { title: 'All Cafes',cafes });
   }
 
+  async function show(req, res) {
+   const cafe = await Cafe.findById(req.params.id);
+   res.render('cafes/show', { title: 'Cafe Review', cafe});
+  }
+
+
 function newCafe(req, res) {
     res.render('cafes/new', { title: 'Add Cafe',errorMsg: ''});
 }
@@ -29,7 +36,7 @@ async function create(req, res) {
       await Cafe.create(req.body);
       res.redirect('/cafes');
     } catch (err) {
-      res.redirect('/cafes/new?errorMsg=' + err.message);
+        res.render('cafes/new', { errMsg: err.message });
     }
   }
 

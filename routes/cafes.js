@@ -9,5 +9,6 @@ router.get('/', cafesCtrl.index);
 router.get('/new', cafesCtrl.new)
 router.post('/', cafesCtrl.create);
 router.get('/', cafesCtrl.index)
+router.get('/:id', cafesCtrl.show);
 
 module.exports = router;

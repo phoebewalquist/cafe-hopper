@@ -40,17 +40,20 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', indexRouter);
-app.use('/cafes', cafesRouter);
-
-//keep below passport
 app.use(function(req, res, next){
-    res.locals.user = req.user;
-    next();
+  res.locals.user = req.user;
+  next();
 });
 
 app.use('/', indexRouter);
 app.use('/cafes', cafesRouter);
+
+//keep below passport
+// app.use(function(req, res, next){
+//     res.locals.user = req.user;
+//     next();
+// });
+
 
 
 

@@ -3,7 +3,7 @@ var router = express.Router();
 const passport = require('passport');
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.redirect('/cafes');
   });
   
 
@@ -13,7 +13,7 @@ router.get('/auth/google', passport.authenticate(
     {
         scope: ['profile', 'email'],
         //Optional 
-        prompt: 'select_account'
+        // prompt: 'select_account'
     }
 ));
 

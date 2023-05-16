@@ -11,20 +11,25 @@
 <body>
 
 <nav>
+  <nav>
+    <img src="/images/camera.svg">
+    <a href="/cafes/new" <%- title === 'Add Cafe' ? 'class="active"' : '' %>>ADD CAFE</a>
+    <a href="/cafes" <%- title === 'All Cafes' ? 'class="active"' : '' %>>ALL CAFES</a>
+  </nav>
 
 </nav>
 
 
 
   <nav>
-    <img src="/images/camera.svg">
+    <!-- <img src="/images/camera.svg"> -->
     <a href="/cafes" <%- title === 'All cafes' ? 'class="active"' : '' %>>ALL CAFES</a>
     <% if (!user) { %>
       <a href="/cafes/new" <%- title === 'Add Cafe' ? 'class="active"' : '' %>>ADD CAFE</a>
       <a href="/logout">LOG OUT</a>
-    <% } else { %>
-      <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
-    <% } %>
+      <% } else { %>
+        <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+      <% } %>
   </nav>
 
 
