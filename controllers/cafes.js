@@ -5,7 +5,7 @@ module.exports = {
     index,
     show,
     new: newCafe,
-    create,
+    create
 
 }
 

@@ -16,8 +16,10 @@ require('./config/database');
 require('./config/passport');
 
 
+
 var indexRouter = require('./routes/index');
 var cafesRouter = require('./routes/cafes');
+var reviewsRouter = require('./routes/reviews');
 
 // Create our express app
 var app = express();
@@ -47,6 +49,7 @@ app.use(function(req, res, next){
 
 app.use('/', indexRouter);
 app.use('/cafes', cafesRouter);
+app.use('/', reviewsRouter);
 
 //keep below passport
 // app.use(function(req, res, next){

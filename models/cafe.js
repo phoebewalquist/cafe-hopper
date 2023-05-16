@@ -6,9 +6,9 @@ const reviewSchema = new Schema({
     content: { type: String, required: true },
     rating: {
         type: Number,
-        min: 0,
+        min: 1,
         max: 5,
-        default: 0
+        default: 5
      }
     }, {
         timestamps: true
