@@ -8,6 +8,7 @@ var logger = require('morgan');
 //keep this below cookie parser and morgan
 var session = require('express-session')
 var passport = require('passport');
+var methodOverride = require('method-override');
 
 
 require('dotenv').config();
@@ -32,6 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 //keep below cookie!
 app.use(session({
@@ -42,6 +44,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//keep below passport
+
 app.use(function(req, res, next){
   res.locals.user = req.user;
   next();
@@ -51,11 +55,6 @@ app.use('/', indexRouter);
 app.use('/cafes', cafesRouter);
 app.use('/', reviewsRouter);
 
-//keep below passport
-// app.use(function(req, res, next){
-//     res.locals.user = req.user;
-//     next();
-// });
 
 
 
