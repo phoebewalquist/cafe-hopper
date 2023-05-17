@@ -1,26 +1,29 @@
-const Cafe = require('../models/cafe');
+const Cafe = require("../models/cafe");
+const sharp = require('sharp');
 
 module.exports = {
   create,
-  delete: deleteReview
+  delete: deleteReview,
+  processImage,
 };
 
 async function deleteReview(req, res, next) {
-
-   Cafe.findOne({ 
-        'reviews._id': req.params.id,
-         'reviews.user': req.user._id 
-        }).then(function(cafe){
-    if (!cafe) return res.redirect('/cafes');
+  Cafe.findOne({
+    "reviews._id": req.params.id,
+    "reviews.user": req.user._id,
+  }).then(function (cafe) {
+    if (!cafe) return res.redirect("/cafes");
     cafe.reviews.remove(req.params.id);
-    cafe.save().then(function() {
+    cafe
+      .save()
+      .then(function () {
         res.redirect(`/cafes/${cafe._id}`);
-    }).catch(function(err){
+      })
+      .catch(function (err) {
         return next(err);
-    });
- });
+      });
+  });
 }
-
 
 async function create(req, res) {
   const cafe = await Cafe.findById(req.params.id);
@@ -29,9 +32,25 @@ async function create(req, res) {
   req.body.userAvatar = req.user.avatar;
   cafe.reviews.push(req.body);
   try {
-   await cafe.save();
+    await cafe.save();
   } catch (err) {
     console.log(err);
   }
   res.redirect(`/cafes/${cafe._id}`);
+}
+
+
+async function processImage(req, res) {
+  const imageAddress = req.body.image;
+
+  // Process the image
+  try {
+    const processedImage = await sharp(imageAddress)
+      .resize(500) 
+      .toBuffer();
+    res.redirect('/cafes/');
+  } catch (error) {
+    console.error('Image processing error:', error);
+    res.status(500).send('Error processing image');
+  }
 }

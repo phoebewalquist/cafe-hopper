@@ -39,7 +39,7 @@ body > main {
   padding: 70px;
   margin-top: 20px;
   margin-left: 20px;
-  font-size: 24px; 
+  font-size: 30px; 
 }
 
 
@@ -105,7 +105,7 @@ table td {
 #show-page {
   display: grid;
   grid-template-columns: auto auto;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
 
 #show-page div:nth-child(even) {

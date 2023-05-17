@@ -30,7 +30,8 @@ const reviewSchema = new Schema(
       max: 5,
       default: 5,
     },
-    image: imgSchema,
+    image: 
+    {type: imgSchema },
 
     user: {
       type: Schema.Types.ObjectId,
