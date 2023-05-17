@@ -57,15 +57,12 @@
   <h5>No Reviews Yet</h5>
 <% } %>
 
-<<% if (cafe.image && cafe.image.image && cafe.image.image.data) { %>
+<!-- <<% if (cafe.image && cafe.image.image && cafe.image.image.data) { %>
   <img src="/<%= cafe.image.image.data %>" alt="">
-<% } %>
+<% } %> -->
 
-<h2>ADD PHOTO</h2>
-<div class="new-review">
-<img src="https://via.placeholder.com/333x333" alt="Review">
-<input type="file" name="avatar">
-</div>
-
+<label>Image:</label>
+<input placeholder="Copy and paste image address" type="text" name="image">
+<input type="submit">
   
 <%- include('../partials/footer') %>

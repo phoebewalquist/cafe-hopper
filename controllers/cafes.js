@@ -18,7 +18,7 @@ function index(req, res) {
 
 async function index(req, res) {
     const cafes = await Cafe.find({});
-    res.render('cafes/index', { title: 'All Cafes',cafes });
+    res.render('cafes/index', { title: 'Cafes',cafes });
   }
 
   async function show(req, res) {

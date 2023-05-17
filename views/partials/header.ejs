@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 
     <title><%= title %></title>
   </head>
@@ -18,7 +18,7 @@
   
     <!-- <img src="/images/camera.svg"> -->
     <img class="nav-link" src="/images/bunny.png" height="40px" width="40px">
-    <a class="nav-link" href="/cafes" <%- title === 'All cafes' ? 'class="active"' : '' %>> 
+    <a class="nav-link" href="/cafes" <%- title === 'Cafes' ? 'class="active"' : '' %>> 
       CAFE HOPPER</a>
     <% if (user) { %>
       <a class="nav-link" href="/cafes/new" <%- title === 'Add Cafe' ? 'class="active"' : '' %>>ADD CAFE</a>

@@ -3,11 +3,23 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const imgSchema = new Schema({
-  image: {
-    data: String,
-    contentType: String,
+    image: [
+          {
+              type: String,
+              validate: {
+                  validator: function (value) {
+                      const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+                      const urlRegExp = new RegExp(urlPattern);
+                      return value.match(urlRegExp);
+              },
+                  message: props => `${props.value} is not a valid URL`
+              }
+          }
+    ],
   },
-});
+  {
+    timestamps: true,
+  });
 
 const reviewSchema = new Schema(
   {
@@ -18,9 +30,7 @@ const reviewSchema = new Schema(
       max: 5,
       default: 5,
     },
-    image: {
-      imgSchema,
-    },
+    image: imgSchema,
 
     user: {
       type: Schema.Types.ObjectId,
@@ -38,7 +48,7 @@ const reviewSchema = new Schema(
 const cafeSchema = new Schema(
   {
     title: { type: String, required: true },
-    //title change to name if err
+ 
     // image: String
     //feautures: String ?
     reviews: [reviewSchema],
