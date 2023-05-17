@@ -27,7 +27,7 @@ async function create(req, res) {
   req.body.user = req.user._id;
   req.body.userName = req.user.name;
   req.body.userAvatar = req.user.avatar;
-  movie.reviews.push(req.body);
+  cafe.reviews.push(req.body);
   try {
    await cafe.save();
   } catch (err) {
