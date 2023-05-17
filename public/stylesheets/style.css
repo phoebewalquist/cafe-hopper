@@ -39,6 +39,7 @@ body > main {
   padding: 70px;
   margin-top: 20px;
   margin-left: 20px;
+  font-family: 'Varela Round', sans-serif;
 }
 
 
@@ -83,6 +84,7 @@ table td {
   padding: 10px;
   text-align: center;
 }
+
 
 #list td:nth-child(2), #list td:nth-child(3){
   min-width: 100px;
@@ -149,4 +151,6 @@ table td {
     text-align: center;
     height: 80px;
   }
+
+  
  

@@ -5,6 +5,7 @@ const cafesCtrl = require('../controllers/cafes')
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 
+
 // router.get('/', cafesCtrl.index);
 //Get router for /cafes/new
 router.get('/new', ensureLoggedIn, cafesCtrl.new)
