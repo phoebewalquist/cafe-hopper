@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 <!-- <form id="new-form" action="/cafes" method="POST"></form> -->
-<h2>Add a New Cafe</h2>
-<form action="/cafes" method="POST">
-  <label>Title:
-    <input type="text" name="title">
-  </label><br>
-  <button type="submit">Add Cafe</button>
-</form>
 
-
-<a href="/">Add Features</a>
-
+<div class="cafe-container">
+  <img class="doublebunny" src="/images/doublebunny.png">
+  <h1>Add Cafe</h1>
+  <form action="/cafes" method="POST" 
+    <label>Name:
+      <input type="text" name="title">
+    </label><br>
+    <button type="submit">Add!</button>
+  </form>
+</div>
 <p><%= errorMsg %></p>
 <%- include('../partials/footer') %>
 

@@ -1,53 +1,67 @@
-const Cafe = require('../models/cafe');
-
+const Cafe = require("../models/cafe");
 
 module.exports = {
-    index,
-    show,
-    new: newCafe,
-    create,
-    edit
-}
+  index,
+  show,
+  new: newCafe,
+  create,
+  edit,
+  updateCafe,
+};
 
 function index(req, res) {
-    res.render('cafes/index', {
-        cafes: Cafe.getAll()
-    })
+  res.render("cafes/index", {
+    cafes: Cafe.getAll(),
+  });
 }
 
-
 async function index(req, res) {
-    const cafes = await Cafe.find({});
-    res.render('cafes/index', { title: 'Cafes',cafes });
-  }
+  const cafes = await Cafe.find({});
+  res.render("cafes/index", { title: "Cafes", cafes });
+}
 
-  async function show(req, res) {
-   const cafe = await Cafe.findById(req.params.id);
-   res.render('cafes/show', { title: 'Cafe Review', cafe});
-  }
-
+async function show(req, res) {
+  const cafe = await Cafe.findById(req.params.id);
+  res.render("cafes/show", { title: "Cafe Review", cafe });
+}
 
 function newCafe(req, res) {
-    res.render('cafes/new', { title: 'Add Cafe',errorMsg: ''});
+  res.render("cafes/new", { title: "", errorMsg: "" });
 }
 
 async function create(req, res) {
-    try {
-      await Cafe.create(req.body);
-      res.redirect('/cafes');
-    } catch (err) {
-        res.render('cafes/new', { errMsg: err.message });
-    }
+  try {
+    await Cafe.create(req.body);
+    res.redirect("/cafes");
+  } catch (err) {
+    res.render("cafes/new", { errMsg: err.message });
   }
+}
 
-
-  async function edit(req, res) {
-    const cafeId = req.params.id;
-    try {
-      const cafe = await Cafe.findById(cafeId);
-      res.render('cafes/edit', { title: 'Edit Features', cafe });
-    } catch (err) {
-      console.error(err);
-      res.redirect('/cafes');
-    }
+async function edit(req, res) {
+  const cafeId = req.params.id;
+  try {
+    const cafe = await Cafe.findById(cafeId);
+    res.render("cafes/edit", { title: "Edit Features", cafe });
+  } catch (err) {
+    console.error(err);
+    // res.redirect('/cafes');
   }
+}
+
+async function updateCafe(req, res) {
+  try {
+    const { cafe, features } = req.body;
+
+    const updatedCafe = await Cafe.findByIdAndUpdate(
+      req.params.id,
+      { cafe, features },
+      { new: true }
+    );
+
+    res.render("cafes/show", { title: "Cafe Review", cafe: updatedCafe });
+  } catch (error) {
+    console.error(error);
+    res.status(500).render("error", { error: "Internal server error" });
+  }
+}

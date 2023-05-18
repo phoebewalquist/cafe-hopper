@@ -44,7 +44,10 @@
           <!-- .toLocaleDateString() provides a more friendly date format -->
           <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"><%= r.userName %></td>
           <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
+          <td class="review-content">
+            <div><%= r.content %></div>
+            <div><img src="<%= r.image %>" alt="" class="review-image"></div>
+          </td>
           <td><%= r.rating %></td>
           <td>
             <% if (user?._id.equals(r.user)) { %>
@@ -53,7 +56,6 @@
               </form>
             <% } %>
           </td>
-          <div><img src="<%= r.image %>" alt=""></div>
         </tr>
       <% }); %>
     </tbody>

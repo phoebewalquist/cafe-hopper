@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-
 const reviewSchema = new Schema(
   {
     content: { type: String, required: true },
@@ -12,11 +11,10 @@ const reviewSchema = new Schema(
       max: 5,
       default: 5,
     },
-    image: 
-    {type: String,
-     required: true
+    image: {
+      type: String,
+      required: true,
     },
-
     user: {
       type: Schema.Types.ObjectId,
       ref: "User",
@@ -34,12 +32,16 @@ const cafeSchema = new Schema(
   {
     title: { type: String, required: true },
     reviews: [reviewSchema],
+    features: {
+      type: [String],
+      default: [],
+    },
   },
   {
     timestamps: true,
   }
 );
 
+const Cafe = mongoose.model("Cafe", cafeSchema);
 
-
-module.exports = mongoose.model("Cafe", cafeSchema);
+module.exports = Cafe;
