@@ -9,11 +9,6 @@ module.exports = {
   update,
 };
 
-function index(req, res) {
-  res.render("cafes/index", {
-    cafes: Cafe.getAll(),
-  });
-}
 
 async function index(req, res) {
   const cafes = await Cafe.find({});

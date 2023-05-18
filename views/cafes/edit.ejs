@@ -1,0 +1,45 @@
+<%- include('../partials/header') %>
+        <form action="/cafes/<%= cafe.id %>?_method=PUT" method="POST" class="features-form">
+          <option>Update An Existing Cafe</option>
+          <input type="text" name="cafe" value="<%= cafe.cafe %>"><br>
+         
+        
+        
+        <label>
+        <input type="checkbox" name="features" value="quiet" <%= cafe.features.includes('quiet') ? 'checked' : '' %>>
+        Quiet
+        </label><br>
+        
+        <label>
+        <input type="checkbox" name="features" value="loud" <%= cafe.features.includes('loud') ? 'checked' : '' %>>
+        Loud
+        </label><br>
+        
+        <label>
+        <input type="checkbox" name="features" value="good_for_studying" <%= cafe.features.includes('good_for_studying') ? 'checked' : '' %>>
+        Good for Studying
+        </label><br>
+        
+        <label>
+        <input type="checkbox" name="features" value="outlets" <%= cafe.features.includes('outlets') ? 'checked' : '' %>>
+        Outlets
+        </label><br>
+        
+        <label>
+        <input type="checkbox" name="features" value="food" <%= cafe.features.includes('food') ? 'checked' : '' %>>
+        Food
+        </label><br>
+        
+        <label>
+        <input type="checkbox" name="features" value="good_for_groups" <%= cafe.features.includes("good_for_groups") ? 'checked' : '' %>>
+        Good for groups
+        </label><br>
+        
+        <button type="submit">Update!</button>
+        </form>
+<%- include('../partials/footer') %>
+
+
+
+
+
