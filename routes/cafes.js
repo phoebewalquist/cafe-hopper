@@ -12,5 +12,7 @@ router.get('/new', ensureLoggedIn, cafesCtrl.new)
 router.post('/', ensureLoggedIn, cafesCtrl.create);
 router.get('/', cafesCtrl.index)
 router.get('/:id', cafesCtrl.show);
+router.get('/:id/edit', cafesCtrl.edit);
+
 
 module.exports = router;

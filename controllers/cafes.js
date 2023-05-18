@@ -5,8 +5,8 @@ module.exports = {
     index,
     show,
     new: newCafe,
-    create
-
+    create,
+    edit
 }
 
 function index(req, res) {
@@ -41,4 +41,13 @@ async function create(req, res) {
   }
 
 
-
+  async function edit(req, res) {
+    const cafeId = req.params.id;
+    try {
+      const cafe = await Cafe.findById(cafeId);
+      res.render('cafes/edit', { title: 'Edit Features', cafe });
+    } catch (err) {
+      console.error(err);
+      res.redirect('/cafes');
+    }
+  }
