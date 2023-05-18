@@ -6,7 +6,7 @@ module.exports = {
   new: newCafe,
   create,
   edit,
-  updateCafe,
+  // updateCafe,
 };
 
 function index(req, res) {
@@ -25,8 +25,16 @@ async function show(req, res) {
   res.render("cafes/show", { title: "Cafe Review", cafe });
 }
 
-function newCafe(req, res) {
-  res.render("cafes/new", { title: "", errorMsg: "" });
+async function newCafe(req, res) {
+  try {
+    const cafe = {
+      cafe: "",
+      features: [],
+    };
+  res.render("cafes/new", { title: "", errorMsg: "", cafe });
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 async function create(req, res) {
@@ -49,19 +57,19 @@ async function edit(req, res) {
   }
 }
 
-async function updateCafe(req, res) {
-  try {
-    const { cafe, features } = req.body;
+// async function updateCafe(req, res) {
+//   try {
+//     const { cafe, features } = req.body;
 
-    const updatedCafe = await Cafe.findByIdAndUpdate(
-      req.params.id,
-      { cafe, features },
-      { new: true }
-    );
+//     const updatedCafe = await Cafe.findByIdAndUpdate(
+//       req.params.id,
+//       { cafe, features },
+//       { new: true }
+//     );
 
-    res.render("cafes/show", { title: "Cafe Review", cafe: updatedCafe });
-  } catch (error) {
-    console.error(error);
-    res.status(500).render("error", { error: "Internal server error" });
-  }
-}
+//     res.render("cafes/show", { title: "Cafe Review", cafe: updatedCafe });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).render("error", { error: "Internal server error" });
+//   }
+// }

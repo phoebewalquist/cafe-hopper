@@ -16,7 +16,7 @@ body {
 }
 
  nav {
-  background-color: rgb(225, 220, 221);
+  background-color: rgb(92, 151, 181);
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -37,7 +37,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: rgb(226, 209, 197);
+  background-color: rgb(234, 116, 12);
   padding: 70px;
   margin: 20px;
   font-size: 30px;
@@ -174,10 +174,45 @@ table td {
  .cafe-container {
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 30%;
+  transform: translateY(-50%);
   text-align: center;
 }
+
+.features-form {
+  justify-content: flex-end;
+  position: absolute;
+  top: 47%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 5%;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.features-form label {
+  display: block;
+  font-size: 20px;
+}
+
+.features-form input[type="checkbox"] {
+  transform: scale(1.2);
+}
+
+.features-form button[type="submit"] {
+  margin-top: 10px;
+}
+
 .review-content {
   display: flex;
   align-items: center;
