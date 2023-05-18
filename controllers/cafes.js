@@ -6,7 +6,7 @@ module.exports = {
   new: newCafe,
   create,
   edit,
-  // updateCafe,
+  update,
 };
 
 function index(req, res) {
@@ -57,19 +57,19 @@ async function edit(req, res) {
   }
 }
 
-// async function updateCafe(req, res) {
-//   try {
-//     const { cafe, features } = req.body;
+async function update(req, res) {
+  try {
+    const { cafe, features } = req.body;
 
-//     const updatedCafe = await Cafe.findByIdAndUpdate(
-//       req.params.id,
-//       { cafe, features },
-//       { new: true }
-//     );
+    const updatedCafe = await Cafe.findByIdAndUpdate(
+      req.params.id,
+      { cafe, features },
+      { new: true }
+    );
 
-//     res.render("cafes/show", { title: "Cafe Review", cafe: updatedCafe });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).render("error", { error: "Internal server error" });
-//   }
-// }
+    res.render("cafes/new", { title: "cafe", cafe: updatedCafe });
+  } catch (error) {
+    console.error(error);
+    res.status(500).render("error", { error: "Internal server error" });
+  }
+}

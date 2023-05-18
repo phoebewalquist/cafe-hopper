@@ -7,13 +7,14 @@ const ensureLoggedIn = require('../config/ensureLoggedIn');
 
 
 // router.get('/', cafesCtrl.index);
+router.get('/', cafesCtrl.index)
 //Get router for /cafes/new
 router.get('/new', ensureLoggedIn, cafesCtrl.new)
 router.post('/', ensureLoggedIn, cafesCtrl.create);
-// router.put('/:id', ensureLoggedIn, cafesCtrl.updateCafe);
-router.get('/', cafesCtrl.index)
 router.get('/:id', cafesCtrl.show);
 router.get('/:id/edit', cafesCtrl.edit);
-//put
+//PUT route to update cafes
+router.put('/:id', ensureLoggedIn, cafesCtrl.update);
+
 
 module.exports = router;

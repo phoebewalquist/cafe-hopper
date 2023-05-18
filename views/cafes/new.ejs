@@ -4,7 +4,7 @@
 <div class="cafe-container">
   <img class="doublebunny" src="/images/doublebunny.png">
   <h1>Add Cafe</h1>
-  <form action="/cafes" method="POST" 
+  <form action="/cafes" method="POST">
     <label>Cafe Name:
       <input type="text" name="title">
     </label><br>
@@ -14,11 +14,11 @@
 <p><%= errorMsg %></p>
 
 
-<!-- <form action="/cafes" method="POST" class="features-form"></form> -->
 
-<form class="features-form">
-  <option>Update An Existing Cafe</option>
-  <input type="text" name="cafe" value="<%= cafe.cafe %>"><br>
+
+  <!-- <form action="/cafes/<%= cafe._id %>" method="POST" class="features-form">
+    <option>Update An Existing Cafe</option>
+    <input type="text" name="cafe" value="<%= cafe.cafe %>"><br>
 
   
 <label>
@@ -52,7 +52,7 @@
 </label><br>
 
 <button type="submit">Update!</button>
-</form>
+</form> -->
 
 
 <%- include('../partials/footer') %>
