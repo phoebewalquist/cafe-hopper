@@ -76,11 +76,11 @@ async function update(req, res) {
 
     const updatedCafe = await Cafe.findByIdAndUpdate(
       req.params.id,
-      { cafe, features },
+      { name: cafe, features },
       { new: true }
     );
 
-    res.redirect(`${cafe._id}`, { title: "cafe", cafe: updatedCafe });
+    res.redirect(`/cafes/${updatedCafe._id}`);
   } catch (error) {
     console.error(error);
     res.status(500).render("error", { error: "Internal server error" });
