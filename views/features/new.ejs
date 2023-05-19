@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<!-- 
+<div>Before adding, please ensure that the Performer is not in the following list:</div> -->
+<section id="badge-container">
+  <% cafe.features.forEach(function(f) { %>
+    <article class="badge"><%= f %></article>
+  <% }) %>
+</section>
+
+<form id="add-performer-form" action="/cafe/<%= cafe._id %>/features/new" method="POST">
+  <label>Name:</label>
+  <input type="text" name="feature">
+  <input type="submit" value="Add Feature">
+</form>
+
+<%- include('../partials/footer') %>

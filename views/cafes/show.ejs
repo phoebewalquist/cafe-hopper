@@ -1,13 +1,23 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div>Title: </div>
   <div><%= cafe.title %></div>
+  <a id="" href="/cafe/<%= cafe._id %>/features/new">ADD FEATURE</a>
+
+  <div class="">
+    <a href="/cafes/<%= cafe._id%>/edit">Update Title</a>
+</div>
   
 </section>
-
+<ul>
+  <%- cafe.features.map(f => 
+    `<li>${f}</li>`
+  ).join('') %>
+</ul>
 </section>
-<!-- new markup below -->
+<form id="add-per-to-feature" action="/cafes/<%= cafe._id %>/features" method="POST">
+</form>
+</section>
 <br><br><h2>Reviews</h2>
 <form id="add-review-form" method="POST"
   action="/cafes/<%= cafe._id %>/reviews">
@@ -42,7 +52,7 @@
     <tbody>
       <% cafe.reviews.forEach(function(r) { %>
         <tr>
-          <!-- .toLocaleDateString() provides a more friendly date format -->
+    
           <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>" referrerpolicy="no-referrer"><%= r.userName %></td>
           <td><%= r.createdAt.toLocaleDateString() %></td>
           <td class="review-content">

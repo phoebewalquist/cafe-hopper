@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-
-    <title><%= title %></title>
   </head>
 <body>
   <header>
@@ -18,10 +16,9 @@
   
     <!-- <img src="/images/camera.svg"> -->
     <img class="nav-link" src="/images/bunny.png" height="40px" width="40px">
-    <a class="nav-link" href="/cafes" <%- title === 'Cafes' ? 'class="active"' : '' %>> 
-      CAFE HOPPER</a>
+    <a class="nav-link" href="/cafes">CAFE HOPPER</a>
     <% if (user) { %>
-      <a class="nav-link" href="/cafes/new" <%- title === 'Add Cafe' ? 'class="active"' : '' %>>ADD CAFE</a>
+      <a class="nav-link" href="/cafes/new">Add Cafe</a>
       <a class="nav-link" href="/logout">LOG OUT</a>
       <% } else { %>
         <a class="nav-link" href="/auth/google" class="login">LOG IN&nbsp;</a>
@@ -29,6 +26,6 @@
   </nav>
 </header>
   <main>
-    <h1><%= title %></h1>
+  
 
 

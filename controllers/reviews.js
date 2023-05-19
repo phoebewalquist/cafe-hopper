@@ -5,6 +5,8 @@ module.exports = {
   create,
   delete: deleteReview,
   processImage,
+  edit,
+  update
 };
 
 async function deleteReview(req, res, next) {
@@ -54,5 +56,33 @@ async function processImage(req, res) {
   } catch (error) {
     console.error('Image processing error:', error);
     res.status(500).send('Error processing image');
+  }
+}
+
+async function edit(req, res) {
+  const cafeId = req.params.id;
+  try {
+    const cafe = await Cafe.findById(cafeId);
+    res.render("cafes/edit", { title: "Edit Features", cafe });
+  } catch (err) {
+    console.error(err);
+    // res.redirect('/cafes');
+  }
+}
+
+async function update(req, res) {
+  try {
+    const { cafe, features } = req.body;
+
+    const updatedCafe = await Cafe.findByIdAndUpdate(
+      req.params.id,
+      { cafe, features },
+      { new: true }
+    );
+
+    res.redirect(`${cafe._id}`, { title: "cafe", cafe: updatedCafe });
+  } catch (error) {
+    console.error(error);
+    res.status(500).render("error", { error: "Internal server error" });
   }
 }

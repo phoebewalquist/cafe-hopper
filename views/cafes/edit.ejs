@@ -1,4 +1,12 @@
 <%- include('../partials/header') %>
+
+    <form action="/cafes/<%= cafe.id %>?_method=PUT" method="POST">
+        <label for="title"></label>
+        <input type="text" name="title">
+        <input type="submit" value="edit title">
+    </form>
+
+
         <form action="/cafes/<%= cafe.id %>?_method=PUT" method="POST" class="features-form">
           <option>Update An Existing Cafe</option>
           <input type="text" name="cafe" value="<%= cafe.cafe %>"><br>

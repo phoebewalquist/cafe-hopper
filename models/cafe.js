@@ -32,10 +32,7 @@ const cafeSchema = new Schema(
   {
     title: { type: String, required: true },
     reviews: [reviewSchema],
-    features: {
-      type: [String],
-      default: [],
-    },
+    features: [String],
   },
   {
     timestamps: true,

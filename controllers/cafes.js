@@ -1,12 +1,12 @@
 const Cafe = require("../models/cafe");
-
+const Feature = require("../models/feature")
 module.exports = {
   index,
   show,
   new: newCafe,
   create,
   edit,
-  update,
+  update
 };
 
 
@@ -17,7 +17,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   const cafe = await Cafe.findById(req.params.id);
-  res.render("cafes/show", { title: "Cafe Review", cafe });
+  res.render("cafes/show", { title: "Cafe Review", cafe});
 }
 
 async function newCafe(req, res) {
@@ -41,30 +41,21 @@ async function create(req, res) {
   }
 }
 
+
 async function edit(req, res) {
-  const cafeId = req.params.id;
-  try {
-    const cafe = await Cafe.findById(cafeId);
-    res.render("cafes/edit", { title: "Edit Features", cafe });
-  } catch (err) {
-    console.error(err);
-    // res.redirect('/cafes');
-  }
+  const cafe = await Cafe.findById(req.params.id);
+  res.render('cafes/edit', { title: 'Edit Features', cafe });
 }
 
 async function update(req, res) {
+  const cafe = await Cafe.findById(req.params.id);
   try {
-    const { cafe, features } = req.body;
-
-    const updatedCafe = await Cafe.findByIdAndUpdate(
-      req.params.id,
-      { cafe, features },
-      { new: true }
-    );
-
-    res.render("cafes/new", { title: "cafe", cafe: updatedCafe });
-  } catch (error) {
-    console.error(error);
-    res.status(500).render("error", { error: "Internal server error" });
+      Object.assign(cafe, req.body);
+      await cafe.save();
+  } catch (err) {
+      console.log(err);
+      res.render('cafes/show', { errorMsg: 'failed to edit cafe ):'});
   }
+  res.redirect(`/cafes/${cafe._id}`);
 }
+
