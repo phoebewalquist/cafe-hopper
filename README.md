@@ -12,7 +12,7 @@ https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%
 
 # Technologies Used
 JavaScript, Node.js, Express.js, MongoDB, Passport.js, EJS templating engine,
-HTTP-errors, Cookie-parser, Dotenv, Express-session, Method-override, Morgan, Sharp
+HTTP-errors, Cookie-parser, Dotenv, Express-session, Method-override, Morgan, Sharp, Heroku 
 
 # Planned Future Enhancements/Ice box features
 Selectable Features: Enable users to choose specific features, limiting the displayed cafes to those selected.
