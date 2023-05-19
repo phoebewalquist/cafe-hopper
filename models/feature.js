@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const featureSchema = new Schema({
-    feature: {
+  feature: {
     type: String,
     required: true,
-    unique: true
-  }});
+    unique: true,
+  },
+});
 
-module.exports = mongoose.model('Feature', featureSchema);
+module.exports = mongoose.model("Feature", featureSchema);

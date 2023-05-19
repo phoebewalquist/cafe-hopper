@@ -1,53 +1,82 @@
 <%- include('../partials/header') %>
-<!-- 
-<div>Before adding, please ensure that the Performer is not in the following list:</div> -->
 <section id="badge-container">
   <% cafe.features.forEach(function(f) { %>
-    <article class="badge"><%= f %></article>
+  <article class="badge"><%= f %></article>
   <% }) %>
 </section>
 
-<form id="add-performer-form" action="/cafe/<%= cafe._id %>/features/new" method="POST">
- 
+<form
+  id="add-performer-form"
+  action="/cafe/<%= cafe._id %>/features/new"
+  method="POST">
+  <option>Add Basic Futures</option>
 
-    <option>Add Basic Futures</option>
-   
-   
-  
-  
   <label>
-  <input type="checkbox" name="features" value="Quiet" <%= cafe.features.includes('quiet') ? 'checked' : '' %>>
-  Quiet
-  </label><br>
-  
+    <input type="checkbox" name="features" value="Quiet" <%=
+    cafe.features.includes('quiet') ? 'checked' : '' %>> Quiet 
+  </label><br/>
+
   <label>
-  <input type="checkbox" name="features" value="Loud" <%= cafe.features.includes('loud') ? 'checked' : '' %>>
-  Loud
-  </label><br>
-  
+    <input type="checkbox" name="features" value="Loud" <%=
+    cafe.features.includes('loud') ? 'checked' : '' %>> Loud 
+  </label><br/>
+
   <label>
-  <input type="checkbox" name="features" value="Good for study" <%= cafe.features.includes('good_for_studying') ? 'checked' : '' %>>
-  Good for Studying
-  </label><br>
-  
+    <input type="checkbox" name="features" value="Good for studying" <%=
+    cafe.features.includes('good_for_studying') ? 'checked' : '' %>> Good for
+    studying 
+  </label><br/>
+
   <label>
-  <input type="checkbox" name="features" value="Charging station" <%= cafe.features.includes('outlets') ? 'checked' : '' %>>
-  Charging station
-  </label><br>
-  
+    <input type="checkbox" name="features" value="Charging station" <%=
+    cafe.features.includes('outlets') ? 'checked' : '' %>> Charging station 
+  </label><br/>
+
   <label>
-  <input type="checkbox" name="features" value="Food" <%= cafe.features.includes('food') ? 'checked' : '' %>>
-  Food
-  </label><br>
-  
+    <input type="checkbox" name="features" value="Food" <%=
+    cafe.features.includes('food') ? 'checked' : '' %>> Food 
+  </label><br/>
+
   <label>
-  <input type="checkbox" name="features" value="good_for_groups" <%= cafe.features.includes("good_for_groups") ? 'checked' : '' %>>
-  Good for groups
-  </label><br>
+    <input type="checkbox" name="features" value="Good for groups" <%=
+    cafe.features.includes("good_for_groups") ? 'checked' : '' %>> Good for
+    groups 
+  </label><br/>
+
+  <label>
+    <input type="checkbox" name="features" value="Accepts apple pay" <%=
+    cafe.features.includes("accepts_apple_pay") ? 'checked' : '' %>> 
+    Accepts apple pay
+  </label><br/>
+
+  <label>
+    <input type="checkbox" name="features" value="Comfortable chairs" <%=
+    cafe.features.includes("comfortable_chairs") ? 'checked' : '' %>> 
+    Comfortable chairs
+  </label><br/>
+
+  <label>
+    <input type="checkbox" name="features" value="Outdoor sitting area" <%=
+    cafe.features.includes("outdoor_sitting_area ") ? 'checked' : '' %>> 
+    Outdoor sitting area
+  </label><br/>
+
+  <label>
+    <input type="checkbox" name="features" value="In a good walking area" <%=
+    cafe.features.includes("in_a_good_walking_area") ? 'checked' : '' %>> 
+    In a good walking area
+  </label><br/>
+
+  <label>
+    <input type="checkbox" name="features" value="Parking lot" <%=
+    cafe.features.includes("parking_lot") ? 'checked' : '' %>> 
+    Parking lot
+  </label><br/>
   
+
+  
+
   <button type="submit">Update!</button>
-  
-
 </form>
 
 <%- include('../partials/footer') %>

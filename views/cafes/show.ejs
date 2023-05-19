@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-  <div><%= cafe.title %></div>
-  <a id="f-button" href="/cafe/<%= cafe._id %>/features/new" >ADD FEATURE</a>
 
-  <div class="">
-    <a href="/cafes/<%= cafe._id%>/edit">Update Title</a>
-</div>
-  
-</section>
+  <a id="" href="/cafe/<%= cafe._id %>/features/new">ADD FEATURE</a>
+
+  <a href="/cafes/<%= cafe._id%>/edit">Update Title</a>
+
+  <div style="font-size: 50px; text-decoration: underline;"><%= cafe.title %></div>
+  </section>
+
 <ul>
   <%- cafe.features.map(f => 
     `<li>${f}</li>`
