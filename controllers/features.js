@@ -7,10 +7,12 @@ module.exports = {
 };
 
 async function create(req, res) {
-    console.log('-----', req.body.feature)
+    console.log('-----', req.body)
   const cafe = await Cafe.findById(req.params.id);
   console.log('cafe')
-  cafe.features.push(req.body.feature);
+  req.body.features.forEach(feature => {
+    cafe.features.push(feature);
+  })
   await cafe.save();
   res.redirect(`/cafes/${cafe._id}`);
 }

@@ -8,9 +8,46 @@
 </section>
 
 <form id="add-performer-form" action="/cafe/<%= cafe._id %>/features/new" method="POST">
-  <label>Name:</label>
-  <input type="text" name="feature">
-  <input type="submit" value="Add Feature">
+ 
+
+    <option>Add Basic Futures</option>
+   
+   
+  
+  
+  <label>
+  <input type="checkbox" name="features" value="Quiet" <%= cafe.features.includes('quiet') ? 'checked' : '' %>>
+  Quiet
+  </label><br>
+  
+  <label>
+  <input type="checkbox" name="features" value="Loud" <%= cafe.features.includes('loud') ? 'checked' : '' %>>
+  Loud
+  </label><br>
+  
+  <label>
+  <input type="checkbox" name="features" value="Good for study" <%= cafe.features.includes('good_for_studying') ? 'checked' : '' %>>
+  Good for Studying
+  </label><br>
+  
+  <label>
+  <input type="checkbox" name="features" value="Charging station" <%= cafe.features.includes('outlets') ? 'checked' : '' %>>
+  Charging station
+  </label><br>
+  
+  <label>
+  <input type="checkbox" name="features" value="Food" <%= cafe.features.includes('food') ? 'checked' : '' %>>
+  Food
+  </label><br>
+  
+  <label>
+  <input type="checkbox" name="features" value="good_for_groups" <%= cafe.features.includes("good_for_groups") ? 'checked' : '' %>>
+  Good for groups
+  </label><br>
+  
+  <button type="submit">Update!</button>
+  
+
 </form>
 
 <%- include('../partials/footer') %>

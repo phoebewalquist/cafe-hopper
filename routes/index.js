@@ -8,12 +8,12 @@ router.get('/', function(req, res, next) {
   
 
 router.get('/auth/google', passport.authenticate(
-    //which passport strategy is being used?
+
     'google',
     {
         scope: ['profile', 'email'],
         //Optional 
-        // prompt: 'select_account'
+        prompt: 'select_account'
     }
 ));
 
