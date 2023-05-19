@@ -1,11 +1,9 @@
 # Description
-Cafe-Hopper is an app designed for coffee lovers that are looking for different cafes for different days. Users can add new coffee shops that they come across, 
-add reviews, and users add certain features so they know exactly what kind of experience they are going to get! 
-
+ Cafe-Hopper is an app designed for coffee lovers that are looking for different cafes for different days. Not only can users add new coffee shops they stumble upon, but they can also CREATE and READ their insightful reviews, DELETE existing ones, and highlight distinctive features that define each cafe's character, enabling others to make informed choices. Furthermore, Cafe-Hopper users can also UPDATE the name of a cafe for some impractical reason.
+ 
 Click here to start your cafe hopping journey:
 https://cafehopper.herokuapp.com/cafes
 
-# App screenshots:
 https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.24.41%20PM.png
 https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.23.19%20PM.png
 https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.25.37%20PM.png
@@ -28,4 +26,3 @@ Personalized Bookmark Page: Enable users to create and customize their own page 
 
 
 Mobile-Device Friendly
-https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.25.37%20PM.png
