@@ -5,6 +5,9 @@ add reviews, and users add certain features so they know exactly what kind of ex
 Click here to start your cafe hopping journey:
 https://cafehopper.herokuapp.com/cafes
 
+https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.24.41%20PM.png
+https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.23.19%20PM.png
+
 
 # Technologies Used
 JavaScript, Node.js, Express.js, MongoDB, Passport.js, EJS templating engine,
@@ -23,3 +26,4 @@ Personalized Bookmark Page: Enable users to create and customize their own page 
 
 
 Mobile-Device Friendly
+https://github.com/phoebewalquist/cafe-hopper/blob/main/Screenshot%202023-05-18%20at%2011.25.37%20PM.png
